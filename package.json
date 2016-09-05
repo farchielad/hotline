@@ -1,0 +1,26 @@
+{
+  "name": "hotline",
+  "version": "1.0.0",
+  "description": "hotline example for bot",
+  "main": "app.js",
+  "scripts": {
+    "test": "haha no"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/farchielad/hotline.git"
+  },
+  "author": "Elad Farchi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/farchielad/hotline/issues"
+  },
+  "homepage": "https://github.com/farchielad/hotline#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-ws": "^2.0.0",
+    "path": "^0.12.7",
+    "request": "^2.74.0"
+  }
+}

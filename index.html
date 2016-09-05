@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>SmoopCast</h2>
+
+<button type="button" onclick="loadDoc()">Request data</button>
+
+<p id="demo"></p>
+
+
+<script>
+var queue = [];
+function loadDoc() {
+  setInterval(function(){
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(this.responseText);
+      var response = this.responseText;
+      if (queue[queue.length-1]!==response && response!=='' & response!==undefined && response!==null)
+      {
+      queue.push(response);
+      }
+      var queue_text = '';
+      var queue_container = document.createElement("div");
+      queue_container.innerHTML = "";
+      var demo_container = document.getElementById("demo");
+      demo_container.innerHTML="";
+      demo_container.appendChild(queue_container);
+      for (var i=0; i<queue.length; i++)
+      {
+        var song_container = document.createElement("div");
+        song_container.style.borderBottom = "1px dotted grey";
+        song_container.style.width="500px";
+        song_container.innerText = "Song Name:      " + queue[i];
+        queue_container.appendChild(song_container);
+        if (i==0)
+        {
+          queue_text = queue[i];
+        }
+        else {
+          queue_text = queue_text + "<br>" + queue[i];
+        }
+      }
+    //  document.getElementById("demo").innerHTML = queue_text;
+
+    }
+  };
+  xhttp.open("GET", "http://hotline-89374.onmodulus.net/hello", true);
+  xhttp.send();
+}, 1000);
+}
+</script>
+
+</body>
+</html>
